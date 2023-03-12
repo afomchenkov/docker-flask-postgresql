@@ -80,23 +80,23 @@ docker-compose -f docker-compose-dev.yml \
 source ~/.bashrc
 
 ## Docker commands
-// stop containers
-docker-compose -f docker-compose-dev.yml stop
-//bring down containers
-docker-compose -f docker-compose-dev.yml down
-// force build
-docker-compose -f docker-compose-dev.yml build --no-cache
-// remove images
-docker rmi $(docker images -q)
-// access DB via psql
-docker exec -ti users-db psql -U postgres -W
-// update containers
-docker-compose -f docker-compose-dev.yml up -d
-// build containers
-docker-compose -f docker-compose-dev.yml up -d --build
-// run coverage
-docker-compose -f docker-compose-dev.yml \
-  run users python manage.py cov
-// run linters
-docker-compose -f docker-compose-dev.yml \
-  run users flake8 project --exclude env
+> // stop containers
+> docker-compose -f docker-compose-dev.yml stop
+> //bring down containers
+> docker-compose -f docker-compose-dev.yml down
+> // force build
+> docker-compose -f docker-compose-dev.yml build --no-cache
+> // remove images
+> docker rmi $(docker images -q)
+> // access DB via psql
+> docker exec -ti users-db psql -U postgres -W
+> // update containers
+> docker-compose -f docker-compose-dev.yml up -d
+> // build containers
+> docker-compose -f docker-compose-dev.yml up -d --build
+> // run coverage
+> docker-compose -f docker-compose-dev.yml \
+>   run users python manage.py cov
+> // run linters
+> docker-compose -f docker-compose-dev.yml \
+>   run users flake8 project --exclude env
