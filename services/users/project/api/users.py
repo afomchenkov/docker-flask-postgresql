@@ -99,6 +99,6 @@ def index():
         email = request.form['email']
         db.session.add(User(username=username, email=email))
         db.session.commit()
-        
+
     users = User.query.all()
     return render_template('index.html', users=users)
