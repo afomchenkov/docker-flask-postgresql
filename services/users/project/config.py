@@ -9,7 +9,6 @@ class BaseConfig:
     PRESERVE_CONTEXT_ON_EXCEPTION = False
 
 
-
 class DevelopmentConfig(BaseConfig):
     """Development configuration"""
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')

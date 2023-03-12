@@ -99,4 +99,4 @@ docker-compose -f docker-compose-dev.yml \
   run users python manage.py cov
 // run linters
 docker-compose -f docker-compose-dev.yml \
-  run users flake8 project
+  run users flake8 project --exclude env

@@ -5,6 +5,7 @@ from project.tests.base import BaseTestCase
 from project import db
 from project.api.models import User
 
+
 def add_user(username, email):
     user = User(username=username, email=email)
     db.session.add(user)
@@ -136,9 +137,10 @@ class TestUserService(BaseTestCase):
                 'john.dow@example.org', data['data']['users'][0]['email'])
             self.assertIn('michael', data['data']['users'][1]['username'])
             self.assertIn(
-                'michael.jackson@example.com', data['data']['users'][1]['email'])
+                'michael.jackson@example.com',
+                data['data']['users'][1]['email']
+            )
             self.assertIn('success', data['status'])
-
 
     def test_main_no_users(self):
         """
