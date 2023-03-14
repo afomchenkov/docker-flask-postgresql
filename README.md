@@ -83,7 +83,7 @@ source ~/.bashrc
 ```sh
 // stop containers
 docker-compose -f docker-compose-dev.yml stop
-//bring down containers
+// bring down containers
 docker-compose -f docker-compose-dev.yml down
 // force build
 docker-compose -f docker-compose-dev.yml build --no-cache
@@ -101,4 +101,20 @@ docker-compose -f docker-compose-dev.yml \
 // run linters
 docker-compose -f docker-compose-dev.yml \
   run users flake8 project --exclude env
+
+// build client
+docker-compose -f docker-compose-dev.yml up --build -d client
+// init logs
+docker-compose -f docker-compose-dev.yml logs -f
+// run test server from the needed build folder
+python3 -m http.server
+
+// stop container
+docker stop CONTAINER_ID
+// remove container
+docker rm CONTAINER_ID
+// remove image
+docker rmi test
+// build prod
+docker-compose -f docker-compose-prod.yml up -d --build
 ```
