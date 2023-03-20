@@ -18,6 +18,7 @@ COV.start()
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
 
+
 @cli.command()
 def cov():
     """Runs the unit tests with coverage."""
@@ -33,6 +34,7 @@ def cov():
         COV.erase()
         return 0
     return 1
+
 
 @cli.command()
 def recreate_db():
@@ -54,11 +56,11 @@ def test():
 @cli.command()
 def seed_db():
     """Seeds the database."""
-    db.session.add(User(username='john', email="john.dow@gmail.com"))
+    db.session.add(
+        User(username='john', email="john.dow@gmail.com"))
     db.session.add(User(username='mustermann',
                    email="max.mustermann@example.org"))
     db.session.commit()
-
 
 
 if __name__ == '__main__':

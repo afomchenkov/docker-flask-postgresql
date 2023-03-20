@@ -69,12 +69,25 @@ docker-compose -f docker-compose-prod.yml \
 ## Run Nginx prod container
 docker-compose -f docker-compose-prod.yml up -d --build nginx
 
-## Run Nginx dev container
+## Update Nginx dev container
 docker-compose -f docker-compose-dev.yml up -d --build nginx
+
+## Update all containers
+docker-compose -f docker-compose-dev.yml up -d --build
 
 ## Run tests
 docker-compose -f docker-compose-dev.yml \
   run users python manage.py test
+
+## Run migrations
+docker-compose -f docker-compose-dev.yml \
+  run users python manage.py db init
+docker-compose -f docker-compose-dev.yml \
+  run users python manage.py db migrate
+docker-compose -f docker-compose-dev.yml \
+  run users python manage.py db upgrade
+
+  
 
 ## Init bash profile
 source ~/.bashrc
